@@ -1,0 +1,11 @@
+#root {
+  max-width: 1500px;
+}
+
+.mainStyled {
+  display: flex;
+
+  gap: 20px;
+
+  justify-content: center;
+}
