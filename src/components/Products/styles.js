@@ -4,18 +4,28 @@ export const List = styled.li`
   display: flex;
   flex-direction: column;
 
-  width: 16.01801801801802vw;
-  height: 49.2962962962963vh;
+  max-width: 230px;
+  min-width: 160px;
+  width: 100%;
+
+  max-height: 330px;
+  height: 100%;
 
   background: white;
 
   border: 2px solid var(--color-grey20);
   border-radius: 5px;
 
+  @media (max-width: 768px) {
+    padding-bottom: 15px;
+  }
+
   .imageProducts {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
 
     height: 150px;
     width: 100%;
@@ -26,6 +36,16 @@ export const List = styled.li`
   img {
     width: 70%;
     height: 90%;
+
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  img:hover {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
   }
 
   .textProducts {
@@ -70,12 +90,20 @@ export const List = styled.li`
     }
 
     button {
-      width: 7.440476190476191vw;
+      max-width: 107px;
+      width: 100%;
       height: 3.7037037037037037vh;
 
       font-size: 1.6666666666666667vh;
       font-weight: 600;
       color: white;
+    }
+
+    @media (max-width: 465px) {
+      button {
+        max-width: 75px;
+        width: 100%;
+      }
     }
   }
 `;

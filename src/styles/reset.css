@@ -14,8 +14,13 @@ button {
   background: var(--color-green);
 
   border-radius: 8px;
+
+  transition: 0.8s;
 }
 
+button:hover {
+  filter: brightness(1.4);
+}
 ul,
 ol,
 li {

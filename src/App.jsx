@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { api } from "./services";
 
 import ProductsList from "./components/ProductsList";
@@ -20,8 +21,9 @@ const App = () => {
     const verificacao = currentSale.some((element) => element.id === idItem);
 
     verificacao
-      ? console.error("item adicionado")
-      : setCurrentSale([...currentSale, filterProducts]);
+      ? toast.error("Item existente")
+      : (setCurrentSale([...currentSale, filterProducts]),
+        toast.success("Item adicionado"));
   }
 
   useEffect(() => {
@@ -35,15 +37,18 @@ const App = () => {
   }, []);
   return (
     <div className="App">
+      <Toaster />
       <Header filteredProducts={filteredProducts} setProducts={setProducts} />
       <main className="mainStyled">
         <ProductsList products={products} handleClick={handleClick} />
         <div>
           <Cart currentSale={currentSale} setCurrentSale={setCurrentSale} />
-          <CartTotal
-            currentSale={currentSale}
-            setCurrentSale={setCurrentSale}
-          />
+          {currentSale.length === 0 ? null : (
+            <CartTotal
+              currentSale={currentSale}
+              setCurrentSale={setCurrentSale}
+            />
+          )}
         </div>
       </main>
     </div>

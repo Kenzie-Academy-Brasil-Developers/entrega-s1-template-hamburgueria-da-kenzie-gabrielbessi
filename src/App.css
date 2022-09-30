@@ -4,8 +4,15 @@
 
 .mainStyled {
   display: flex;
-
   gap: 20px;
 
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .mainStyled {
+    flex-direction: column;
+
+    align-items: center;
+  }
 }

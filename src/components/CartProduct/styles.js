@@ -15,8 +15,10 @@ export const ListCart = styled.li`
 
     img {
       display: flex;
-      width: 5.9523809523809526vw;
-      height: 7.407407407407407vh;
+      max-width: 60px;
+      width: 100%;
+      max-height: 60px;
+      height: 100%;
 
       background-color: var(--color-grey20);
     }
@@ -24,28 +26,17 @@ export const ListCart = styled.li`
     div {
       display: flex;
       flex-direction: column;
+      gap: 4px;
     }
 
     p {
       display: flex;
       font-size: 16px;
+      font-weight: 900;
     }
-
-    @media (max-width: 991px) {
-      p {
-        font-size: 0.7em;
-      }
-      span {
-        font-size: 0.7em;
-      }
-    }
-    @media (max-width: 745px) {
-      p {
-        font-size: 0.6em;
-      }
-      span {
-        font-size: 0.6em;
-      }
+    span {
+      font-size: 14px;
+      font-weight: 400;
     }
   }
   .buttonCart {
@@ -55,9 +46,15 @@ export const ListCart = styled.li`
     justify-content: center;
 
     background-color: white;
+    transition: 0.1s;
 
     width: 2em;
     height: 2em;
+  }
+
+  .buttonCart:hover {
+    color: red;
+    filter: brightness(1.2);
   }
 
   @media (max-width: 795px) {

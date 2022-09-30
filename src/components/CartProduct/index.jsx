@@ -1,5 +1,6 @@
 import { ListCart } from "./styles";
 import { BsFillTrashFill } from "react-icons/bs";
+import toast from "react-hot-toast";
 
 const CardProduct = ({
   id,
@@ -13,6 +14,9 @@ const CardProduct = ({
     const filterCurrentSale = currentSale.filter(({ id }) => id !== idRemove);
 
     setCurrentSale(filterCurrentSale);
+    toast("Item removido do carrinho", {
+      icon: <BsFillTrashFill />,
+    });
   }
 
   return (
@@ -24,13 +28,16 @@ const CardProduct = ({
           <span>{category}</span>
         </div>
       </div>
-      <button
-        className="buttonCart"
-        type="button"
-        onClick={() => handleRemove(id)}
-      >
-        <BsFillTrashFill />
-      </button>
+      <div>
+        <button
+          className="buttonCart"
+          type="button"
+          onClick={() => handleRemove(id)}
+        >
+          <BsFillTrashFill />
+        </button>
+        {/* <p>1</p> */}
+      </div>
     </ListCart>
   );
 };
